@@ -1,90 +1,113 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Alegreya+Sans&display=swap');
 
-:root {
-    --frame: #425677; /* East Bay / Blue Bayoux blend */
-    --bg-overlay: rgba(168, 183, 203, 0.85); /* Casper with transparency */
-    --accent: #c98470; /* Antique Brass */
-    --bubble-bg: #eaf5fc; /* Selago */
-    --text: #020a14; /* Black Pearl */
-}
-
 body {
     margin: 0;
     padding: 0;
-    background: url('../assets/timewright_university_main_page.jpeg') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Alegreya Sans', sans-serif;
+    height: 100vh;
+    background: #a8b7cb; /* Casper */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 #game-container {
-    width: 900px;
-    height: 600px;
-    background: var(--bg-overlay);
-    border: 8px solid var(--frame);
+    display: flex;
+    width: 95vw;
+    height: 85vh;
+    background: url('../assets/classroom.jpg') no-repeat center center;
+    background-size: cover;
+    border: 10px solid #425677; /* East Bay */
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Left Side: Dialogue & Logic */
+#environment-view {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 30px rgba(103, 206, 203, 0.5); /* Downy Glow */
+    justify-content: space-between;
+    padding: 40px;
+    background: rgba(82, 100, 130, 0.4); /* Semi-transparent Blue Bayoux */
 }
 
-#era-title {
+.university-logo {
     font-family: 'Cinzel', serif;
-    background: var(--frame);
     color: white;
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-}
-
-#scene-container {
-    flex-grow: 1;
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    background: url('../assets/classroom.jpg') no-repeat center bottom;
-    background-size: cover;
-}
-
-#character-sprite {
-    height: 350px;
-    width: auto;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
 }
 
 .speech-bubble {
-    background: var(--bubble-bg);
-    color: var(--text);
-    border: 3px solid var(--frame);
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 50px;
-    margin-left: 20px;
-    font-size: 1.2rem;
-    max-width: 400px;
+    background: #eaf5fc; /* Selago */
+    color: #020a14;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    border-left: 8px solid #c98470; /* Antique Brass */
+    max-width: 80%;
 }
 
-#interaction-area {
-    background: var(--frame);
-    padding: 15px;
+#input-area {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 input {
-    flex-grow: 1;
-    padding: 12px;
-    border: none;
+    flex: 1;
+    padding: 20px;
     border-radius: 5px;
+    border: none;
+    font-size: 1.1rem;
 }
 
 button {
-    background: var(--accent);
+    background: #c98470; /* Antique Brass */
     color: white;
     border: none;
-    padding: 10px 25px;
-    cursor: pointer;
+    padding: 0 40px;
     font-weight: bold;
-    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Right Side: The Ornate Frame & Character */
+#character-view {
+    flex: 0 0 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(2, 10, 20, 0.3);
+}
+
+.frame-container {
+    position: relative;
+    width: 400px;
+    height: 550px;
+}
+
+.ornate-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    z-index: 2;
+}
+
+.sprite-overlay {
+    position: absolute;
+    top: 15%; /* Adjusts character position inside frame */
+    left: 10%;
+    width: 80%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+#character-sprite {
+    height: 110%; /* Makes them look life-sized in the window */
+    width: auto;
 }
