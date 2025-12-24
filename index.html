@@ -7,39 +7,30 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="intro-screen">
-        <div id="intro-content">
-            <h1 class="glitch-title">A GLITCH IN TIME</h1>
-            <h2>TimeWright University Chronomentor Program</h2>
-            <img src="assets/teacher_talk_gif.gif" alt="Dr. Aris" id="intro-teacher">
-            <p id="intro-text">Welcome, Mentor. We have a crisis in the timeline. Our historical subjects are struggling to communicate. Are you ready to begin?</p>
-            <button onclick="startGame()">ENTER FACILITY</button>
+    <div id="game-container">
+        <div id="environment-view">
+            <h1 class="university-logo">TIMEWRIGHT UNIVERSITY</h1>
+            <div id="ai-bubble" class="speech-bubble">
+                "Mentor, I am waiting. This classroom is too quiet... and the lights hum like angry bees."
+            </div>
+            <footer id="input-area">
+                <input type="text" id="user-input" placeholder="Speak to Kallistos...">
+                <button id="send-btn">SEND</button>
+            </footer>
         </div>
-    </div>
 
-    <div id="game-container" style="display:none;">
-        <header id="game-header">
-            <h1 id="era-title">Subject Orientation</h1>
-        </header>
-        <main id="scene-container">
-            <img id="character-sprite" src="" alt="Subject">
-            <div id="ai-bubble" class="speech-bubble">Initializing...</div>
-        </main>
-        <footer id="interaction-area">
-            <input type="text" id="user-input" placeholder="Respond to the subject...">
-            <button id="send-btn">Send</button>
-        </footer>
+        <div id="character-view">
+            <div class="frame-container">
+                <img src="assets/image_47e917.jpg" class="ornate-frame" alt="Communication Frame">
+                <div class="sprite-overlay">
+                    <img id="character-sprite" src="assets/spartan_neutral_face.gif" alt="Kallistos">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/ai.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
-    <script>
-        function startGame() {
-            document.getElementById('intro-screen').style.display = 'none';
-            document.getElementById('game-container').style.display = 'flex';
-            loadCharacter('kallistos'); // Starts straight with the Spartan
-        }
-    </script>
 </body>
 </html>
