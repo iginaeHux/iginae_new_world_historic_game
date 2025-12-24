@@ -1,0 +1,85 @@
+:root {
+    --bg-color: #f4f1ea;
+    --text-color: #333;
+    --accent: #5d5c58;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#game-container {
+    width: 900px;
+    height: 600px;
+    background: white;
+    border: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+#scene-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    position: relative;
+}
+
+#character-sprite-container {
+    width: 40%;
+    height: 80%;
+}
+
+#character-sprite {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.speech-bubble {
+    position: relative;
+    background: #ffffff;
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-bottom: 100px;
+    max-width: 50%;
+    font-size: 1.1rem;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+#interaction-area {
+    padding: 20px;
+    background: #eee;
+    border-top: 2px solid var(--accent);
+}
+
+#input-group {
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
