@@ -1,50 +1,33 @@
-let currentCharacter = null;
-let sceneData = null;
+const sprite = document.getElementById('character-sprite');
+const chatFlow = document.getElementById('chat-flow');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
 
-// Initialize Game
-async function init() {
-    const response = await fetch('data/scenes.json');
-    sceneData = await response.json();
-    
-    // Load Spartan as default for now
-    loadCharacter('spartan');
+function appendMessage(role, text) {
+    const div = document.createElement('div');
+    div.className = `message ${role}`;
+    div.innerText = text;
+    chatFlow.appendChild(div);
+    chatFlow.scrollTop = chatFlow.scrollHeight;
 }
 
-function loadCharacter(id) {
-    currentCharacter = sceneData.characters[id];
-    document.getElementById('era-title').innerText = currentCharacter.era;
-    updateCharacterUI('neutral', `I am ${currentCharacter.name}. Speak clearly.`);
-}
-
-async function handleSendMessage() {
-    const inputField = document.getElementById('user-input');
-    const message = inputField.value.trim();
-    
+async function handleSend() {
+    const message = userInput.value.trim();
     if (!message) return;
 
-    inputField.value = '';
-    updateDialogue("..."); // Loading state
+    appendMessage('user', message);
+    userInput.value = '';
 
-    const aiResponse = await fetchAIResponse(message, currentCharacter);
-    updateDialogue(aiResponse);
-    
-    // Logic for expression changes could go here based on keywords
+    // Simulate Kallistos reacting
+    // In a full build, this would come from your AI logic
+    if (message.toLowerCase().includes("calm") || message.toLowerCase().includes("breath")) {
+        sprite.src = 'assets/smile slide small one.jpg';
+        setTimeout(() => appendMessage('ai', "Kallistos: The air in my chest is... different. I am listening."), 500);
+    } else {
+        sprite.src = 'assets/spartan_neutral_face.gif';
+        setTimeout(() => appendMessage('ai', "Kallistos: Your words are strange. Speak with more steel."), 500);
+    }
 }
 
-function updateDialogue(text) {
-    document.getElementById('ai-bubble').innerText = text;
-}
-
-function updateCharacterUI(expression, message) {
-    const img = document.getElementById('character-sprite');
-    img.src = currentCharacter.assets[expression];
-    if (message) updateDialogue(message);
-}
-
-// Event Listeners
-document.getElementById('send-btn').addEventListener('click', handleSendMessage);
-document.getElementById('user-input').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') handleSendMessage();
-});
-
-window.onload = init;
+sendBtn.addEventListener('click', handleSend);
+userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
