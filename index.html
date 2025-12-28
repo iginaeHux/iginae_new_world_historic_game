@@ -3,30 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Glitch in Time</title>
+    <title>ChronoMentor | TimeWright University</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="game-container">
-        <div id="environment-view">
-            <h1 class="university-logo">TIMEWRIGHT UNIVERSITY</h1>
-            <div id="ai-bubble" class="speech-bubble">
-                "Mentor, I am waiting. This classroom is too quiet... and the lights hum like angry bees."
-            </div>
-            <footer id="input-area">
-                <input type="text" id="user-input" placeholder="Speak to Kallistos...">
-                <button id="send-btn">SEND</button>
-            </footer>
-        </div>
+    <div id="mentorship-console">
+        <section id="interaction-column">
+            <header id="task-header">
+                <h3>CURRENT OBJECTIVE</h3>
+                <p id="current-task">Establish a calm environment. Kallistos is agitated by modern stimuli.</p>
+            </header>
 
-        <div id="character-view">
-            <div class="frame-container">
-                <img src="assets/image_47e917.jpg" class="ornate-frame" alt="Communication Frame">
-                <div class="sprite-overlay">
-                    <img id="character-sprite" src="assets/spartan_neutral_face.gif" alt="Kallistos">
+            <div id="chat-flow">
+                <div class="message ai">Initializing connection...</div>
+            </div>
+
+            <footer id="input-area">
+                <input type="text" id="user-input" placeholder="Type your guidance here...">
+                <button id="send-btn">SEND PROTOCOL</button>
+            </footer>
+        </section>
+
+        <aside id="visual-column">
+            <div id="character-frame-container">
+                <img src="assets/image_47e917.jpg" id="ornate-border" alt="Temporal Window">
+                <div id="sprite-window">
+                    <img id="character-sprite" src="assets/spartan_neutral_face.gif" alt="Subject 001">
                 </div>
             </div>
-        </div>
+
+            <div id="mentor-guide">
+                <h4>MENTOR HINTS</h4>
+                <ul id="hint-list">
+                    <li>Kallistos values directness.</li>
+                    <li>Avoid "flowery" modern sarcasm.</li>
+                    <li>Focus on <strong>Emotional Regulation</strong> first.</li>
+                </ul>
+            </div>
+        </aside>
     </div>
 
     <script src="js/ai.js"></script>
