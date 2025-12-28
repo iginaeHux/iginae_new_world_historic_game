@@ -1,33 +1,20 @@
-const sprite = document.getElementById('character-sprite');
-const chatFlow = document.getElementById('chat-flow');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-
-function appendMessage(role, text) {
-    const div = document.createElement('div');
-    div.className = `message ${role}`;
-    div.innerText = text;
-    chatFlow.appendChild(div);
-    chatFlow.scrollTop = chatFlow.scrollHeight;
+function showView(viewId) {
+    document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
+    document.getElementById(viewId).classList.add('active');
 }
 
-async function handleSend() {
-    const message = userInput.value.trim();
-    if (!message) return;
-
-    appendMessage('user', message);
-    userInput.value = '';
-
-    // Simulate Kallistos reacting
-    // In a full build, this would come from your AI logic
-    if (message.toLowerCase().includes("calm") || message.toLowerCase().includes("breath")) {
-        sprite.src = 'assets/smile slide small one.jpg';
-        setTimeout(() => appendMessage('ai', "Kallistos: The air in my chest is... different. I am listening."), 500);
-    } else {
-        sprite.src = 'assets/spartan_neutral_face.gif';
-        setTimeout(() => appendMessage('ai', "Kallistos: Your words are strange. Speak with more steel."), 500);
-    }
-}
-
-sendBtn.addEventListener('click', handleSend);
-userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSend(); });
+// Basic Send Function for Testing
+document.getElementById('send-btn').addEventListener('click', () => {
+    const input = document.getElementById('user-input');
+    if (!input.value) return;
+    
+    const flow = document.getElementById('chat-flow');
+    flow.innerHTML += `<div style="margin:10px; text-align:right;"><b>Mentor:</b> ${input.value}</div>`;
+    input.value = '';
+    
+    // Simulate Spartan response
+    setTimeout(() => {
+        flow.innerHTML += `<div style="margin:10px; color:#67cecb;"><b>Kallistos:</b> I do not understand this 'mentorship'. My steel is my guide.</div>`;
+        flow.scrollTop = flow.scrollHeight;
+    }, 1000);
+});
