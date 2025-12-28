@@ -1,98 +1,128 @@
-/* TIMEWRIGHT SYSTEMS - ULTIMATE READABILITY VERSION 
-   Vibe: Heavy Glassmorphism & Bold Tech-Victorian
+/* TIMEWRIGHT UNIVERSITY - STABLE V3 
+   Focus: High Readability + Fixed Layout + Spartan Layering
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Alegreya+Sans:wght@400;700&display=swap');
 
 :root {
-    --glass-ai: rgba(82, 100, 130, 0.85);   /* Blue Bayoux Bubble */
-    --glass-user: rgba(103, 206, 203, 0.4);  /* Teal User Bubble */
-    --accent-glow: #67cecb;
-    --text-main: #eaf5fc;
+    --bubble-ai: rgba(45, 60, 80, 0.9);   /* Deep tech blue */
+    --bubble-user: rgba(103, 206, 203, 0.3); /* Soft teal glow */
+    --accent: #67cecb;
+    --text: #eaf5fc;
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    margin: 0; padding: 0;
     height: 100vh; width: 100vw;
     font-family: 'Alegreya Sans', sans-serif;
-    font-size: 24px; /* MASSIVE text for clarity */
-    color: var(--text-main);
-    background-color: #020a14;
-    overflow: hidden;
+    font-size: 22px; /* Large and clear */
+    color: var(--text);
+    background: #020a14;
+    overflow: hidden; /* Stops the "scroll of death" */
 }
 
-/* --- BACKGROUND LAYERING --- */
+/* --- BACKGROUNDS --- */
 .view {
     display: none;
-    width: 100vw; height: 100vh;
+    width: 100%; height: 100%;
     background-size: cover;
     background-position: center;
 }
-
-.view.active { display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.view.active { display: flex; }
 
 #landing-view { background-image: url('../assets/timewright_university_main_page.jpeg'); }
-#selection-view, #gameplay-view { background-image: url('../assets/classroom.jpg'); }
+#gameplay-view { background-image: url('../assets/classroom.jpg'); }
 
-/* --- THE CONSOLE LAYOUT --- */
+/* --- THE MAIN GRID (Prevents elements from jumping) --- */
 .console-grid {
     display: grid;
-    grid-template-columns: 1fr 600px; /* portal column is now huge */
-    width: 98vw; height: 95vh;
-    gap: 20px;
+    grid-template-columns: 1fr 450px; /* Chat on left, Spartan on right */
+    width: 100%; height: 100vh;
     padding: 20px;
+    gap: 20px;
 }
 
-/* --- THE CHAT BUBBLES --- */
-#chat-flow {
-    flex-grow: 1;
-    overflow-y: auto;
+/* --- CHAT AREA (The "Game Function" Fix) --- */
+.interaction-zone {
     display: flex;
     flex-direction: column;
+    height: 100%;
     gap: 15px;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
 }
 
+#chat-flow {
+    flex: 1; /* This takes up all available space */
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- MESSAGE BUBBLES --- */
 .msg-ai, .msg-user {
-    max-width: 80%;
-    padding: 15px 25px;
-    border-radius: 20px;
-    line-height: 1.4;
-    font-weight: 500;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    max-width: 85%;
+    padding: 18px 25px;
+    border-radius: 15px;
+    line-height: 1.5;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
 .msg-ai {
     align-self: flex-start;
-    background: var(--glass-ai);
-    border-bottom-left-radius: 2px;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--bubble-ai);
+    border-left: 4px solid var(--accent);
 }
 
 .msg-user {
     align-self: flex-end;
-    background: var(--glass-user);
-    border-bottom-right-radius: 2px;
-    border: 1px solid var(--accent-glow);
-    color: white;
+    background: var(--bubble-user);
+    border-right: 4px solid white;
 }
 
-/* --- THE SPARTAN PORTAL (LAYERED) --- */
+/* --- INPUT BOX (The "I lost my text box" fix) --- */
+.input-area {
+    height: 80px;
+    display: flex;
+    gap: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--accent);
+    color: white;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+}
+
+button {
+    width: 120px;
+    background: var(--accent);
+    color: #020a14;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --- THE SPARTAN SANDWICH (Layering) --- */
 .visual-zone {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Keeps hints at the bottom */
 }
 
 .frame-container {
     position: relative;
-    width: 550px; /* Portals should be big */
-    height: 700px;
+    width: 100%;
+    height: 500px;
 }
 
 .ornate-frame {
@@ -100,54 +130,31 @@ body {
     top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: contain;
-    z-index: 10; /* The frame is the top layer */
-    pointer-events: none;
+    z-index: 10; /* The Victorian frame on top */
 }
 
 .sprite-window {
     position: absolute;
-    /* Aligned to the hole in spartan_screen.jpg */
-    top: 15%; left: 12%;
-    width: 76%; height: 65%;
-    background: #000;
-    z-index: 1; /* Sits BEHIND the frame */
+    /* This aligns with the 'hole' in spartan_screen.jpg */
+    top: 18%; left: 15%;
+    width: 70%; height: 62%;
+    z-index: 5; /* Kallistos sits UNDER the frame */
     display: flex;
     justify-content: center;
     align-items: flex-end;
     overflow: hidden;
+    background: #000;
 }
 
 #character-sprite {
     height: 90%;
     width: auto;
-    /* This ensures Kallistos actually shows up */
-    display: block !important; 
 }
 
-/* --- INPUT & INTERFACE --- */
-.glass-panel {
-    background: rgba(15, 25, 40, 0.8);
-    backdrop-filter: blur(10px);
+.hints-box {
+    background: rgba(234, 115, 81, 0.2); /* Soft orange hint box */
     padding: 20px;
-    border-radius: 15px;
-}
-
-input[type="text"] {
-    width: 100%;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid var(--accent-glow);
-    color: white;
-    padding: 20px;
-    font-size: 1.4rem;
+    border: 1px solid #ea7351;
     border-radius: 10px;
-}
-
-button {
-    background: var(--accent-glow);
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 15px 30px;
-    cursor: pointer;
-    border: none;
+    font-size: 1rem;
 }
