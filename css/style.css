@@ -184,3 +184,49 @@ button {
     border-radius: 10px;
     font-size: 1rem;
 }
+/* Selection Screen Specifics */
+.character-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.char-card {
+    background: rgba(2, 10, 20, 0.6);
+    border: 2px solid #67cecb;
+    padding: 30px;
+    border-radius: 15px;
+    width: 280px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.char-card:hover {
+    background: rgba(103, 206, 203, 0.2);
+    transform: scale(1.05);
+}
+
+.char-card.locked {
+    opacity: 0.5;
+    border-color: #425677;
+    cursor: not-allowed;
+}
+
+.era-tag {
+    font-size: 0.9rem;
+    color: #67cecb;
+    font-weight: bold;
+}
+
+.primary-btn, .back-btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background: #67cecb;
+    color: #020a14;
+    font-family: 'Cinzel';
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
