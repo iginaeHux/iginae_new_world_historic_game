@@ -2,77 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Glitch in Time | TimeWright University</title>
+    <title>A Glitch in Time | Welcome</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-    <section id="landing-view" class="view active">
-        <div class="glass-panel centered">
-            <h1 class="glitch-text">A GLITCH IN TIME</h1>
-            <h2>TimeWright University Orientation</h2>
-            <div class="intro-flex">
-                <img src="assets/teacher_talk_gif.gif" alt="Dr. Aris" class="mentor-avatar">
-                <p>Welcome, Candidate. To earn your Time Travel Certification, you must successfully mentor six historical subjects. Help them navigate modern social ethics without causing a temporal rupture.</p>
-            </div>
-            <button class="primary-btn" onclick="showView('selection-view')">START ORIENTATION</button>
-        </div>
-    </section>
-
-    <section id="selection-view" class="view">
-        <div class="glass-panel">
-            <h2 class="section-title">SUBJECT DIRECTORY</h2>
-            <div class="character-grid">
-                <div class="char-card active" onclick="showView('gameplay-view')">
-                    <div class="char-id">SUB-001</div>
-                    <h3>KALLISTOS</h3>
-                    <p>Sparta | Era: 431 BCE</p>
-                    <span class="status">NEEDS MENTORSHIP</span>
-                </div>
-                <div class="char-card locked"><h3>COMING SOON</h3></div>
-                <div class="char-card locked"><h3>COMING SOON</h3></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="gameplay-view" class="view">
-        <div id="console-layout">
-            <div class="interaction-stack">
-                <div class="glass-panel objective-panel">
-                    <h3>CURRENT PROTOCOL: EMOTIONAL REGULATION</h3>
-                    <p id="current-task">Subject is agitated. Guide him to a state of calm before proceeding.</p>
-                </div>
-                
-                <div id="chat-flow" class="glass-panel">
-                    </div>
-
-                <div class="input-container glass-panel">
-                    <input type="text" id="user-input" placeholder="Type protocol guidance...">
-                    <button id="send-btn">TRANSMIT</button>
-                </div>
-            </div>
-
-            <aside class="visual-stack">
-                <div class="portal-frame-container">
-                    <img src="assets/spartan_screen.jpg" class="portal-frame" alt="Temporal Frame">
-                    <div class="sprite-window">
-                        <img id="character-sprite" src="assets/spartan_neutral_face.gif" alt="Kallistos">
-                    </div>
-                </div>
-                
-                <div class="glass-panel hint-panel">
-                    <h4>CHRONO-NOTES</h4>
-                    <ul id="hint-list">
-                        <li>Values direct, literal speech.</li>
-                        <li>High sensitivity to "hum" of technology.</li>
-                        <li>Respond with calm accountability.</li>
-                    </ul>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <script src="js/app.js"></script>
+<body class="landing-bg">
+    <div class="centered-glass">
+        <h1 class="cinzel-font">A GLITCH IN TIME</h1>
+        <p>Welcome, Candidate. You are currently at TimeWright University. To earn your Time Travel Certification, you must successfully mentor six historical subjects.</p>
+        <p>Your first placement is waiting.</p>
+        <button class="primary-btn" onclick="window.location.href='selection.html'">ENTER UNIVERSITY</button>
+    </div>
 </body>
 </html>
