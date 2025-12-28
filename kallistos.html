@@ -1,36 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentoring Kallistos | TimeWright</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body class="gameplay-bg">
     <div class="console-grid">
         <section class="interaction-zone">
-            
-            <div class="glass-panel badge-tray">
-                <div class="badge" id="badge-1">🪨</div>
-                <div class="badge" id="badge-2">🔍</div>
-                <div class="badge" id="badge-3">⚖️</div>
-                <div class="badge" id="badge-4">🛡️</div>
-                <div class="badge" id="badge-5">🎓</div>
+            <div class="glass-panel badge-tray" style="display: flex; justify-content: space-around; margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.2);">
+                <div id="badge-1" style="opacity: 0.3;">🪨</div>
+                <div id="badge-2" style="opacity: 0.3;">🔍</div>
+                <div id="badge-3" style="opacity: 0.3;">⚖️</div>
+                <div id="badge-4" style="opacity: 0.3;">🛡️</div>
+                <div id="badge-5" style="opacity: 0.3;">🎓</div>
             </div>
 
-            <div id="chat-flow">
-                <div class="msg-ai"><b>Mission 1: The Static</b><br>Kallistos: "This room hums like a thousand bees! It mocks my focus. I will silence the walls with my fists!"</div>
+            <div class="glass-panel info-header">
+                <h3 id="mission-title">MISSION 1: THE STATIC</h3>
+                <p id="mission-objective">Objective: Guide him to calm. He is agitated by the facility lights.</p>
             </div>
 
-            <div class="input-area">
-                <input type="text" id="user-input" placeholder="Type your guidance...">
-                <button id="send-btn">TRANSMIT</button>
+            <div id="chat-flow" style="height: 400px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; padding: 20px; background: rgba(0,0,0,0.4); border-radius: 15px; margin-bottom: 20px;">
+                <div class="msg-ai">Kallistos: "This room hums like a thousand bees! It mocks my focus. I will silence the walls with my fists!"</div>
+            </div>
+
+            <div class="input-area" style="display: flex; gap: 10px;">
+                <input type="text" id="user-input" placeholder="Type your guidance..." style="flex: 1; padding: 15px; border-radius: 10px; border: none;">
+                <button id="send-btn" style="padding: 0 20px; background: #67cecb; border: none; border-radius: 10px; cursor: pointer;">TRANSMIT</button>
             </div>
         </section>
 
         <aside class="visual-zone">
-            <div class="portal-container">
-                <div class="sprite-window">
-                    <img id="character-sprite" src="assets/spartan_neutral_face.gif">
+            <div class="portal-container" style="position: relative; width: 100%; height: 500px;">
+                <div class="sprite-window" style="position: absolute; top: 15%; left: 15%; width: 70%; height: 65%; background: #000; display: flex; justify-content: center; align-items: flex-end; z-index: 5;">
+                    <img id="character-sprite" src="assets/spartan_neutral_face.gif" style="height: 90%;">
                 </div>
-                <img src="assets/spartan_screen.jpg" class="ornate-frame">
+                <img src="assets/spartan_screen.jpg" class="ornate-frame" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; object-fit: contain;">
             </div>
-            <button onclick="window.location.href='selection.html'" class="back-btn">RETURN TO DIRECTORY</button>
+            <div class="glass-panel hint-box" style="margin-top: 20px;">
+                <h4>CHRONO-NOTES</h4>
+                <p id="mission-hint">He is dysregulated. Suggest he pauses or breathes.</p>
+            </div>
+            <button onclick="window.location.href='selection.html'" class="back-btn" style="width: 100%; margin-top: 10px; padding: 10px; cursor: pointer;">RETURN TO DIRECTORY</button>
         </aside>
     </div>
 
-    <script src="js/gameplay.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
