@@ -1,40 +1,66 @@
-/* TIMEWRIGHT UNIVERSITY - STABLE V3 
-   Focus: High Readability + Fixed Layout + Spartan Layering
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Alegreya+Sans:wght@400;700&display=swap');
 
-:root {
-    --bubble-ai: rgba(45, 60, 80, 0.9);   /* Deep tech blue */
-    --bubble-user: rgba(103, 206, 203, 0.3); /* Soft teal glow */
-    --accent: #67cecb;
-    --text: #eaf5fc;
+/* GLOBAL BASICS */
+body { 
+    margin: 0; padding: 0; font-family: 'Alegreya Sans', sans-serif; 
+    background: #020a14; color: #eaf5fc; overflow: hidden;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    height: 100vh; width: 100vw;
-    font-family: 'Alegreya Sans', sans-serif;
-    font-size: 22px; /* Large and clear */
-    color: var(--text);
-    background: #020a14;
-    overflow: hidden; /* Stops the "scroll of death" */
+/* LANDING PAGE (Restoring your vibe) */
+.landing-bg { background: url('../assets/timewright_university_main_page.jpeg') no-repeat center; background-size: cover; }
+.centered-glass { 
+    background: rgba(82, 100, 130, 0.7); backdrop-filter: blur(10px);
+    padding: 50px; border-radius: 20px; text-align: center; margin: 10% auto; max-width: 800px;
 }
 
-/* --- BACKGROUNDS --- */
-.view {
-    display: none;
-    width: 100%; height: 100%;
-    background-size: cover;
-    background-position: center;
+/* GAMEPLAY PAGE */
+.gameplay-bg { background: url('../assets/classroom.jpg') no-repeat center; background-size: cover; }
+
+.console-grid {
+    display: grid; grid-template-columns: 1fr 550px;
+    height: 100vh; padding: 30px; gap: 30px;
 }
-.view.active { display: flex; }
 
-#landing-view { background-image: url('../assets/timewright_university_main_page.jpeg'); }
-#gameplay-view { background-image: url('../assets/classroom.jpg'); }
+/* CHAT BUBBLES - BIG & CLEAR */
+#chat-flow {
+    flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 20px;
+    padding: 20px; background: rgba(0,0,0,0.3); border-radius: 15px; margin-bottom: 20px;
+}
 
-/* --- THE MAIN GRID (Prevents elements from jumping) --- */
+.msg-ai, .msg-user {
+    max-width: 85%; padding: 20px 30px; border-radius: 25px;
+    font-size: 1.5rem; /* Large text for you */
+    line-height: 1.4; box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.msg-ai { align-self: flex-start; background: #425677; border-left: 8px solid #67cecb; }
+.msg-user { align-self: flex-end; background: rgba(103, 206, 203, 0.4); border-right: 8px solid white; }
+
+/* THE SPARTAN SANDWICH FIX */
+.portal-container {
+    position: relative; width: 100%; height: 600px;
+}
+
+.ornate-frame {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10; object-fit: contain; pointer-events: none;
+}
+
+.sprite-window {
+    position: absolute; top: 15%; left: 13%; width: 74%; height: 65%;
+    z-index: 5; background: #000; overflow: hidden;
+    display: flex; justify-content: center; align-items: flex-end;
+}
+
+#character-sprite { height: 95%; width: auto; }
+
+/* INPUT BOX */
+.input-area { display: flex; gap: 15px; height: 80px; }
+input { flex: 1; padding: 20px; font-size: 1.3rem; border-radius: 10px; border: 1px solid #67cecb; background: rgba(0,0,0,0.5); color: white; }
+button { padding: 0 30px; background: #67cecb; font-family: 'Cinzel'; font-weight: bold; border: none; cursor: pointer; }
+
+/* HINT BOX */
+.glass-panel { background: rgba(82, 100, 130, 0.8); padding: 20px; border-radius: 15px; }/* --- THE MAIN GRID (Prevents elements from jumping) --- */
 .console-grid {
     display: grid;
     grid-template-columns: 1fr 450px; /* Chat on left, Spartan on right */
