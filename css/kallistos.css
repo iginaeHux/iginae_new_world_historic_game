@@ -114,3 +114,24 @@ h3, .cinzel-font {
     margin-bottom: 5px;
     text-transform: uppercase;
 }
+.badge-tray {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.badge {
+    font-size: 1.5rem;
+    opacity: 0.2; /* Greyed out until earned */
+    filter: grayscale(1);
+    transition: 0.5s;
+}
+
+.badge.earned {
+    opacity: 1;
+    filter: grayscale(0);
+    transform: scale(1.2);
+    text-shadow: 0 0 10px #fbceb1;
+}
