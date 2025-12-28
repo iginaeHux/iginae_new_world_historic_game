@@ -1,8 +1,11 @@
-/* KALLISTOS SPECIFIC: NO SCROLLING ALLOWED */
+/* IMPORT MODERN FONT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Cinzel:wght@700&display=swap');
+
 body, html {
     height: 100%;
     margin: 0;
-    overflow: hidden; /* Hard stop on scrolling */
+    overflow: hidden;
+    font-family: 'Inter', sans-serif; /* Sleek modern font */
 }
 
 .gameplay-bg { 
@@ -10,46 +13,70 @@ body, html {
     background-size: cover; 
 }
 
-/* TIGHTEN THE GRID */
+/* THE GRID - Balanced Spacing */
 .console-grid {
     display: grid; 
-    grid-template-columns: 1fr 450px; /* Slimmer right side */
+    grid-template-columns: 1fr 550px; /* Wider right side for a bigger screen */
     height: 100vh; 
-    padding: 20px; 
-    gap: 15px;
+    padding: 30px; 
+    gap: 30px;
     box-sizing: border-box;
+    align-items: center; /* Vertical center alignment */
 }
 
-/* CONDENSED CHAT BOX */
+/* LIGHT GLASS PANELS (Apricot/Cream) */
+.glass-panel { 
+    background: rgba(255, 245, 230, 0.6); /* Creamy Apricot base */
+    backdrop-filter: blur(10px); /* The "Glass" effect */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 20px; 
+    border-radius: 20px;
+}
+
+/* CHAT FLOW - Lowered and Shrunk */
 #chat-flow {
-    height: 55vh; /* Restricted height */
+    height: 50vh; 
     overflow-y: auto; 
     display: flex; 
     flex-direction: column; 
-    gap: 10px;
-    padding: 20px; 
-    background: rgba(0, 0, 0, 0.85); /* Solid opacity for visibility */
-    border-radius: 15px;
+    gap: 15px;
+    padding: 25px; 
+    background: rgba(255, 255, 255, 0.25); /* Ultra-light transparency */
+    border-radius: 20px;
+    margin-bottom: 20px;
 }
 
-/* BIG TEXT, SMALLER BUBBLES */
 .msg-ai, .msg-user {
-    max-width: 90%; 
-    padding: 12px 20px; 
-    border-radius: 15px;
-    font-size: 1.4rem; /* Big but fits */
-    line-height: 1.2;
+    max-width: 85%; 
+    padding: 15px 25px; 
+    border-radius: 20px;
+    font-size: 1.3rem; 
+    line-height: 1.4;
+    font-weight: 500;
 }
 
-.msg-ai { align-self: flex-start; background: #2d3c50; border-left: 5px solid #67cecb; color: white; }
-.msg-user { align-self: flex-end; background: #67cecb; color: #000; font-weight: bold; }
+.msg-ai { 
+    align-self: flex-start; 
+    background: rgba(255, 255, 255, 0.9); /* Solid cream */
+    color: #4a3a2a; 
+    border-left: 8px solid #fbceb1; /* Apricot accent */
+}
 
-/* SPARTAN SCREEN: SHRUNK TO FIT */
+.msg-user { 
+    align-self: flex-end; 
+    background: #fbceb1; /* Apricot */
+    color: #2d2d2d; 
+}
+
+/* THE PORTAL - Massive but Contained */
 .portal-container {
     position: relative; 
     width: 100%; 
-    height: 400px; /* Significantly shorter to prevent overflow */
-    margin-bottom: 10px;
+    height: 600px; /* Big enough to be the centerpiece */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 .ornate-frame {
@@ -59,28 +86,31 @@ body, html {
 
 .sprite-window {
     position: absolute; 
-    top: 15%; left: 14%; 
-    width: 72%; height: 62%;
-    z-index: 5; background: #000;
+    top: 14%; left: 14%; 
+    width: 72%; height: 64%;
+    z-index: 5; 
+    background: #000; 
     display: flex; justify-content: center; align-items: flex-end;
 }
 
-#character-sprite { height: 90%; width: auto; }
+#character-sprite { height: 95%; width: auto; }
 
-/* COMPACT INPUT */
-.input-area { display: flex; gap: 10px; height: 60px; }
+/* COMPACT MODERN INPUT */
+.input-area { display: flex; gap: 15px; height: 70px; }
 input { 
-    flex: 1; padding: 10px; font-size: 1.2rem; 
-    background: rgba(0,0,0,0.9); color: white; border: 1px solid #67cecb; 
+    flex: 1; padding: 20px; font-size: 1.2rem; border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8); border: 2px solid #fbceb1; 
 }
 .send-btn { 
-    width: 100px; background: #67cecb; color: #000; font-weight: bold; border: none; cursor: pointer;
+    width: 120px; background: #fbceb1; color: #2d2d2d; 
+    font-weight: bold; border-radius: 15px; border: none; cursor: pointer;
+    font-size: 1rem;
 }
 
-/* OPAQUE INFO PANELS */
-.glass-panel { 
-    background: rgba(10, 20, 30, 0.95); 
-    padding: 15px; border-radius: 10px; border: 1px solid #67cecb;
+/* TITLES */
+h3, .cinzel-font { 
+    font-family: 'Cinzel', serif; 
+    color: #4a3a2a; 
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
-.info-header h3 { margin: 0; font-size: 1.3rem; color: #67cecb; }
-.back-btn { width: 100%; margin-top: 10px; padding: 10px; background: #425677; color: white; border: none; cursor: pointer; }
