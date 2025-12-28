@@ -20,7 +20,11 @@ body {
     background-size: cover; background-position: center;
 }
 
-#landing-view { background-image: url('../assets/timewright_university_main_page.jpg'); }
+#landing-view { 
+    background-image: url('../assets/timewright_university_main_page.jpeg'); 
+    background-size: cover;
+    background-position: center;
+}
 #selection-view, #gameplay-view { background-image: url('../assets/classroom.jpg'); }
 .view.active { display: flex; justify-content: center; align-items: center; }
 
