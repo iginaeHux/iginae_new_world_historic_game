@@ -1,75 +1,212 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Alegreya+Sans:wght@300;700&display=swap');
+/* TIMEWRIGHT UNIVERSITY - GLOBAL STYLES 
+    Vibe: Tech-Victorian Glassmorphism
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Alegreya+Sans:wght@300;500;700&display=swap');
 
 :root {
-    --tech-blue: rgba(82, 100, 130, 0.7); /* Blue Bayoux Transparent */
-    --light-glass: rgba(234, 245, 252, 0.2); /* Selago Glass */
-    --accent-glow: #67cecb; /* Downy */
-    --text-main: #eaf5fc;
+    --tech-blue: rgba(82, 100, 130, 0.7); /* Blue Bayoux - Semi-Transparent */
+    --deep-void: rgba(2, 10, 20, 0.85);   /* Darker tech base */
+    --accent-teal: #67cecb;               /* Downy / Glow */
+    --text-light: #eaf5fc;                /* Selago White */
+    --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 body {
-    margin: 0; padding: 0; height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
     font-family: 'Alegreya Sans', sans-serif;
-    color: var(--text-main);
+    font-size: 20px; /* Boosted for your tired eyes */
+    color: var(--text-light);
     overflow: hidden;
+    background-color: #020a14;
 }
 
-/* Background Logic */
+/* --- VIEW MANAGEMENT --- */
 .view {
-    display: none; width: 100vw; height: 100vh;
-    background-size: cover; background-position: center;
-}
-
-#landing-view { 
-    background-image: url('../assets/timewright_university_main_page.jpeg'); 
+    display: none;
+    width: 100vw;
+    height: 100vh;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-#selection-view, #gameplay-view { background-image: url('../assets/classroom.jpg'); }
-.view.active { display: flex; justify-content: center; align-items: center; }
 
-/* Glassmorphism Panels */
+.view.active {
+    display: flex;
+}
+
+/* --- BACKGROUNDS --- */
+#landing-view { 
+    background-image: url('../assets/timewright_university_main_page.jpeg'); 
+}
+
+#selection-view, #gameplay-view { 
+    background-image: url('../assets/classroom.jpg'); 
+}
+
+/* --- THE GLASS PANEL (PEEK-THROUGH) --- */
 .glass-panel {
     background: var(--tech-blue);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px); /* This makes the Victorian classroom "peek" through */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    text-align: center;
+}
+
+/* --- TEXT & HEADERS --- */
+h1, h2, h3, .cinzel-font {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-teal);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(103, 206, 203, 0.4);
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2rem; }
+
+p {
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 1.3rem; /* Larger readability */
+}
+
+/* --- THE SPARTAN PORTAL (BIGGER & BETTER) --- */
+.console-grid {
+    display: grid;
+    grid-template-columns: 1fr 500px; /* Wider right column for the portal */
+    width: 95vw;
+    height: 90vh;
+    gap: 30px;
+}
+
+.frame-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Much bigger presence on screen */
+}
+
+.ornate-frame {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 5; /* Sits on top */
+    filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+}
+
+.sprite-window {
+    position: absolute;
+    /* Precise alignment for the assets/spartan_screen.jpg ornate hole */
+    top: 15%; 
+    left: 12%; 
+    width: 76%; 
+    height: 68%;
+    background: radial-gradient(circle, #1a2a3a 0%, #020a14 100%);
+    z-index: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#character-sprite {
+    height: 95%; /* Kallistos fills the frame */
+    width: auto;
+}
+
+/* --- CHAT FLOW --- */
+.interaction-zone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.chat-box {
+    flex-grow: 1;
+    background: rgba(2, 10, 20, 0.4);
     border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    overflow-y: auto;
+    text-align: left;
 }
 
-.centered { max-width: 800px; text-align: center; }
-
-/* Console Layout */
-#console-layout {
-    display: grid; grid-template-columns: 1fr 400px;
-    width: 95vw; height: 90vh; gap: 20px;
+/* --- BUTTONS --- */
+button {
+    background: var(--accent-teal);
+    color: #020a14;
+    border: none;
+    padding: 15px 40px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.interaction-stack { display: flex; flex-direction: column; gap: 15px; }
-
-#chat-flow { flex-grow: 1; overflow-y: auto; background: var(--light-glass); }
-
-.input-container { display: flex; gap: 10px; padding: 15px; }
-input { 
-    flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--accent-glow);
-    padding: 12px; color: white; border-radius: 5px;
+button:hover {
+    background: var(--text-light);
+    box-shadow: 0 0 25px var(--accent-teal);
+    transform: translateY(-2px);
 }
 
-/* The Portal Frame */
-.portal-frame-container { position: relative; height: 500px; }
-.portal-frame { width: 100%; height: 100%; object-fit: contain; z-index: 2; position: relative; }
-.sprite-window {
-    position: absolute; top: 18%; left: 14%; width: 72%; height: 65%;
-    background: #081825; border-radius: 5px; z-index: 1;
-    display: flex; justify-content: center; align-items: flex-end;
+/* --- CHARACTER CARDS --- */
+.character-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
 }
-#character-sprite { height: 90%; }
 
-/* Buttons & UI */
-.primary-btn {
-    background: var(--accent-glow); color: #081825; border: none;
-    padding: 15px 40px; font-weight: bold; cursor: pointer; border-radius: 5px;
-    font-family: 'Cinzel'; margin-top: 20px; transition: 0.3s;
+.char-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--accent-teal);
+    padding: 30px;
+    border-radius: 15px;
+    width: 250px;
+    cursor: pointer;
 }
-.primary-btn:hover { box-shadow: 0 0 20px var(--accent-glow); }
+
+.char-card.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: gray;
+}
+
+.char-card:hover:not(.locked) {
+    background: rgba(103, 206, 203, 0.2);
+}
+
+/* --- INPUT BOX --- */
+.input-box {
+    display: flex;
+    gap: 15px;
+}
+
+input[type="text"] {
+    flex: 1;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid var(--accent-teal);
+    padding: 15px;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
